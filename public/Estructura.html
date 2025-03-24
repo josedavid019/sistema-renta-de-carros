@@ -1,0 +1,30 @@
+frontend/
+├── public/
+│   ├── index.html
+│   └── images/
+│       ├── imagen-pagina-home.png   // Imagen de fondo de la Home
+│       └── logo-empresa.png         // Logo de la empresa
+├── src/
+│   ├── assets/                      // (Opcional) Recursos que se importan (por ejemplo, imágenes adicionales)
+│   ├── components/
+│   │   ├── Navbar.jsx               // Barra de navegación
+│   │   ├── Footer.jsx               // Pie de página
+│   │   ├── CarCarousel.jsx          // Carrusel de carros (muestra 3 tarjetas por slide)
+│   │   ├── CarCarousel.css
+│   │   ├── CarCard.jsx              // Tarjeta de carro (incluye la imagen, rating y nombre)
+│   │   ├── CarCard.css
+│   │   ├── StarRating.jsx           // Componente funcional para el rating (estrellas clicables)
+│   │   └── StarRating.css
+│   ├── pages/
+│   │   ├── Home.jsx                 // Página principal que integra la sección hero y el carrusel
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   ├── ClientesGestion.jsx
+│   │   └── VehiculosGestion.jsx
+│   ├── styles/
+│   │   └── App.css                  // Estilos globales de la aplicación
+│   ├── App.jsx                      // Componente principal de la aplicación
+│   └── index.js                     // Punto de entrada (monta React en el DOM)
+├── package.json
+├── vite.config.js
+└── README.md
