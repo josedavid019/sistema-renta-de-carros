@@ -1,6 +1,11 @@
 /* src/components/Navbar.css */
 .navbar {
     display: flex;
+<<<<<<< HEAD
+=======
+    position: relative;  /* O 'fixed' si quieres que se quede en la parte superior al hacer scroll */
+    z-index: 1000;
+>>>>>>> 7c0dcc5638db46690d0da55f728a0bf1629f751e
     justify-content: space-between;
     align-items: center; /* Centra verticalmente todos los elementos */
     background-color: red;
