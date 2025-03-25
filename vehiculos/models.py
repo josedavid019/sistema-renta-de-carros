@@ -34,18 +34,18 @@ class Vehiculo(models.Model):
     seguro_vigente = models.BooleanField(default=True)
     fecha_vencimiento_seguro = models.DateField(null=True, blank=True)
     estado_documentacion = models.CharField(max_length=100)
-    historial_mantenimientos = models.TextField()
+    historial_mantenimientos = models.TextField(blank=True)
     ultima_inspeccion = models.DateField(null=True, blank=True)
     fecha_ultimo_mantenimiento = models.DateField(null=True, blank=True)
     proximo_mantenimiento = models.DateField(null=True, blank=True)
 
     # Historial y valoración del vehículo
-    historial_accidentes = models.TextField()
+    historial_accidentes = models.TextField(blank=True)
     valor_actual = models.DecimalField(max_digits=12, decimal_places=2)
 
     # Imágenes y detalles adicionales del vehículo
-    fotos = models.JSONField()
-    descripcion_adicional = models.TextField()
+    fotos = models.JSONField(default=list, blank=True)
+    descripcion_adicional = models.TextField(blank=True)
 
     def __str__(self):
         return f"{self.marca} {self.modelo} ({self.anio})"
