@@ -2,12 +2,31 @@ from django.db import models
 
 class Cliente(models.Model):
     
+    GENERO_CHOICES = [
+    ('masculino', 'Masculino'),
+    ('femenino', 'Femenino'),
+    ('otro', 'Otro'),
+    ]
+
+    METODO_PAGO_CHOICES = [
+    ('tarjeta_credito', 'Tarjeta de crédito'),
+    ('tarjeta_debito', 'Tarjeta de débito'),
+    ('efectivo', 'Efectivo'),
+    ('transferencia', 'Transferencia'),
+    ]
+
+    ESTADO_CHOICES = [
+    ('activo', 'Activo'),
+    ('inhabilitado', 'Inhabilitado'),
+    ('pendiente_verificacion', 'Pendiente de verificación'),
+    ]
+
     # Datos Personales del Cliente
     id_cliente = models.AutoField(primary_key=True)
     nombres = models.CharField(max_length=100)
     apellidos = models.CharField(max_length=100)
     fecha_nacimiento = models.DateField()
-    genero = models.CharField(max_length=20)
+    genero = models.CharField(max_length=30, choices=GENERO_CHOICES)
     nacionalidad = models.CharField(max_length=50)
     fecha_registro = models.DateTimeField(auto_now_add=True)
 
@@ -25,7 +44,7 @@ class Cliente(models.Model):
     fotos_identificacion = models.JSONField(default=list, blank=True)
 
     # Información de Pago del Cliente
-    metodo_pago = models.CharField(max_length=20)
+    metodo_pago = models.CharField(max_length=30, choices=METODO_PAGO_CHOICES)
     ultimos_4_digitos_tarjeta = models.CharField(max_length=4, null=True, blank=True)
 
     # Historial de Alquileres y Estado del Cliente
@@ -33,7 +52,7 @@ class Cliente(models.Model):
     historial_vehiculos = models.JSONField(default=list)
     historial_pagos = models.JSONField(default=list)
     historial_multas = models.JSONField(default=list)
-    estado = models.CharField(max_length=30)
+    estado = models.CharField(max_length=30, choices=ESTADO_CHOICES)
     notas_internas = models.TextField(null=True, blank=True)
 
     def __str__(self):
