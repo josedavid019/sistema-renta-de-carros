@@ -1,26 +1,15 @@
 // src/components/Navbar.jsx
 import React from "react";
-<<<<<<< HEAD
 import "./Navbar.css";
-=======
-import "./Navbar.css"; // hoja de estilos opcional
->>>>>>> 7c0dcc5638db46690d0da55f728a0bf1629f751e
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-<<<<<<< HEAD
         {/* Al envolver el logo en <a> con href="/" se redirige al home */}
         <a href="/">
           <img
             src="/Logo empresa.png" 
-=======
-        {/* Logo envuelto en <a> para redirigir al home */}
-        <a href="/">
-          <img
-            src="/Logo empresa.png"
->>>>>>> 7c0dcc5638db46690d0da55f728a0bf1629f751e
             alt="Logo de la empresa"
             className="navbar-logo"
           />
