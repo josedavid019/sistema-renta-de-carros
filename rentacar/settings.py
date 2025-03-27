@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,10 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Django REST Framework y JWT
     'rest_framework',
+    'rest_framework_simplejwt',
     'django_filters',
+
+    # Apps del proyecto
     'vehiculos',
     'clientes',
+    'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -80,12 +87,27 @@ WSGI_APPLICATION = 'rentacar.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rentacar_db',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'NAME': 'bxv2rczimshyfx07kg6b',  # Nombre de la base de datos
+        'USER': 'urqolcuqfurpyb3w',  # Usuario de la base de datos
+        'PASSWORD': 'tDTDdR4hiJggLLfXi3RK',  # Contraseña
+        'HOST': 'bxv2rczimshyfx07kg6b-mysql.services.clever-cloud.com',  # Servidor
+        'PORT': '3306',  # Puerto de MySQL
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),  # Token expira en 1 día
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
 
